@@ -1,13 +1,13 @@
-
+import math
 
 class Calc():
-    def __init__(self,total =0,res =0):
-        self.total = total
-        self.res = res
+    def __init__(self):
+        self.total = 0
+        self.res = 0
         
                 
     def Add(self,x,y):
-        resault = x+y 	
+        resault = x+y	
         return(x + y)
         
     def Sub(self,x,y):
@@ -34,6 +34,36 @@ class Calc():
         resault = x%y
         return (x%y)
     
+    def Sqart(self,x):
+        return (math.sqrt(x))
+        
+    def Log(self,x):
+        base = int (input("Please enter base: "))
+        return (math.log(x,base))
+        
+    def Sin(self,x):
+        state = int(input("for Degree press 1: "))
+        if state == 1:
+            return(math.sin(math.radians(x)))
+        else:
+            return (math.sin(x))
+            
+        
+        
+    def Cos(self,x):
+        state = int(input("for Degree press 1: "))
+        if state == 1:
+            return(math.cos(math.radians(x)))
+        else:
+            return (math.cos(x))
+    
+    def Tan(self,x):
+        state = int(input("for Degree press 1: "))
+        if state == 1:
+            return(math.tan(math.radians(x)))
+        else:
+            return (math.tan(x))      
+        
     def Clear(self):
         self.total =0
    
@@ -43,9 +73,9 @@ class Calc():
         while calculate != "0":
             num1 = int (input("PLease Enter Num1: "))
 
-            choice = input("Choose the operator: +, -, *, /, %, ^ : ")
+            choice = input("Choose the operator: +, -, *, /, %, ^, sqart, log, sin, cos, tan : ")
    
-            while choice not in ("+,-,*,/,%,^"):
+            while choice not in ("+,-,*,/,%,^,sqart,log,sin,cos,tan"):
                 choice = input("Please choose +, -, *, /, %, ^ ")
                     
             if choice == "+":
@@ -80,13 +110,33 @@ class Calc():
                 num2 = int (input("Enter Num2: ")) 
                 print(num1 ,"^", num2, "=",Calc.Power(self,num1,num2) ) 
                 
+            elif choice == "sqart":
+
+                print("sqart(",num1 ,") =",Calc.Sqart(self,num1) ) 
+                
+            elif choice == "log":
+ 
+                print("log(",num1 ,") =",Calc.Log(self,num1) ) 
+                
+            elif choice == "sin":
+   
+                print("sin(",num1 ,") =",Calc.Sin(self,num1) ) 
+                
+            elif choice == "cos":
+   
+                print("cos(",num1 ,") =",Calc.Cos(self,num1) ) 
+                
+            elif choice == "tan":
+   
+                print("tan(",num1 ,") =",Calc.Tan(self,num1) )                
+             
+                
             calculate = input("If you want to exit press 0: ")
             if calculate == "0":
                 print ("Thank you")
                 break
                     
-
-              
+          
 ope =Calc
 ope.Options(0)
     
