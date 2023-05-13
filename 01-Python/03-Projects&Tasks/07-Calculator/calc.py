@@ -64,6 +64,12 @@ class Calc():
         else:
             return (math.tan(x))      
         
+    def Shift_Left(self,x,y):
+        return(x<<y)
+ 
+    def Shift_Right(self,x,y):
+        return(x>>y)
+            
     def Clear(self):
         self.total =0
    
@@ -73,10 +79,10 @@ class Calc():
         while calculate != "0":
             num1 = int (input("PLease Enter Num1: "))
 
-            choice = input("Choose the operator: +, -, *, /, %, ^, sqart, log, sin, cos, tan : ")
+            choice = input("Choose the operator: +, -, *, /, %, ^, sqart, log, sin, cos, tan, <<, >> : ")
    
-            while choice not in ("+,-,*,/,%,^,sqart,log,sin,cos,tan"):
-                choice = input("Please choose +, -, *, /, %, ^ ")
+            while choice not in ("+,-,*,/,%,^,sqart,log,sin,cos,tan,<<,>>"):
+                choice = input("Please choose +, -, *, /, %, ^, sqart, log, sin, cos, tan, <<, >>")
                     
             if choice == "+":
                     
@@ -128,9 +134,18 @@ class Calc():
                 
             elif choice == "tan":
    
-                print("tan(",num1 ,") =",Calc.Tan(self,num1) )                
-             
+                print("tan(",num1 ,") =",Calc.Tan(self,num1) )  
+                              
+            elif choice == "<<":
                 
+                num2 = int (input("Enter Num2: ")) 
+                print(num1 ,"<<", num2, "=",Calc.Shift_Left(self,num1,num2) )              
+
+            elif choice == ">>":
+                
+                num2 = int (input("Enter Num2: ")) 
+                print(num1 ,">>", num2, "=",Calc.Shift_Right(self,num1,num2) ) 
+                                
             calculate = input("If you want to exit press 0: ")
             if calculate == "0":
                 print ("Thank you")
