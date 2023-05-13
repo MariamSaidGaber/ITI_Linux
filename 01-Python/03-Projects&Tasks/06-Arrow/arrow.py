@@ -1,7 +1,11 @@
 ###################################################3
 import time
+import os
 
 def Arrow_Right(lines):
+    for i in range(0,int(lines/2)):
+        print("\n")
+    
     #Arrow upper side
     list1 =[]
     for i in range(0,lines):
@@ -20,6 +24,9 @@ def Arrow_Right(lines):
 ################################################################
  
 def Arrow_Left(lines):
+    for x in range(0,int(lines/2)):
+        print("\n")
+    
     #Arrow upper side
     list1 =[]
     for i in range(0,lines):
@@ -35,10 +42,11 @@ def Arrow_Left(lines):
     for count in range(0,lines):
         list2.append((" "*(count+1)) + ("*"*(lines-count-1)) )
     print("\n".join(list2))        
-################## 
+############################################################################## 
 
 def Arrow_Up(lines):
-    
+
+ 
     list1 =[]
     for i in range(0,(lines+1)):
         list1.append((" "*lines) + (" "*(lines-i) ) + ("*"*(2*i-1)) )
@@ -50,32 +58,39 @@ def Arrow_Up(lines):
    
 def Arrow_Down(lines):
     
+    for i in range(0, int((1.5*lines)) ):
+        print("\n")
+        
     for i in range(0,lines):
         print((" "*lines) + (" "*(lines-1)) + ("*") )
     
     list2 =[]
     for count in range(0,lines):
-        list2.append((" "*lines) + (" "*(count+1)) + ("*" *((lines-count-1)*2-1)) )
-    print("\n".join(list2))      \
+        list2.append((" "*lines) + (" "*(count)) + ("*" *((lines-count)*2-1)) )
+    print("\n".join(list2))      
     
 
 
 def Display(Num_lines):
-    
-	Arrow_Right(Num_lines)
-	time.sleep(1)	
-	Arrow_Down(Num_lines)
-	time.sleep(1)
-	Arrow_Left(Num_lines)
-	time.sleep(1)
-	Arrow_Up(Num_lines)
-	time.sleep(1)
+    Arrow_Up(Num_lines)
+    time.sleep(0.5)
+    os.system('cls')    
+
+    Arrow_Right(Num_lines)
+    time.sleep(0.5)
+    os.system('cls')
+    Arrow_Down(Num_lines)
+    time.sleep(0.5)
+    os.system('cls')
+    Arrow_Left(Num_lines)
+    time.sleep(0.5)
+    os.system('cls')
+
+
 
         
-		
-
 
 Num_lines = int(input("Enter num of lines: "))
-#while True:
-Display(Num_lines)
-	
+while True:
+    Display(Num_lines)
+
